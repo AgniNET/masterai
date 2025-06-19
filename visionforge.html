@@ -20,13 +20,43 @@
   <section class="tool-section">
     <h1>🎨 VisionForge</h1>
     <p>Type a prompt and let AI turn it into art.</p>
-    <input type="text" placeholder="Describe your image idea..." />
-    <button>Generate Image</button>
+
+    <input type="text" id="visionPrompt" placeholder="Describe your image idea..." />
+    <button onclick="handleVision()">Generate Image</button>
+
     <div class="output-box">
       <h3>🖼️ AI Image Result</h3>
-      <p>[Generated image preview will appear here]</p>
+      <p id="visionResult">[Generated image preview will appear here]</p>
     </div>
   </section>
+
+  <script>
+    async function handleVision() {
+      const idea = document.getElementById("visionPrompt").value.trim();
+      const output = document.getElementById("visionResult");
+
+      if (!idea) {
+        output.textContent = "⚠️ Please enter an image idea.";
+        return;
+      }
+
+      output.textContent = "🧠 Thinking visually...";
+
+      try {
+        const res = await fetch("https://gemini-api-backend-cfry.onrender.com/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt: "Create an image concept for: " + idea })
+        });
+
+        const data = await res.json();
+        output.textContent = data.answer || "✅ No response received";
+      } catch (err) {
+        output.textContent = "⚠️ Backend error: Could not fetch image description.";
+        console.error(err);
+      }
+    }
+  </script>
 
 </body>
 </html>
