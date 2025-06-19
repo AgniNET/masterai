@@ -59,3 +59,59 @@ nav a {
   text-decoration: none;
   font-weight: 500;
 }
+
+/* --- Tools Section Styling --- */
+
+.tools {
+  padding: 80px 10%;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.tools h2 {
+  font-size: 32px;
+  margin-bottom: 50px;
+  color: #333;
+}
+
+.tool-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.tool-card {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 12px;
+  max-width: 300px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+}
+
+.tool-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #6a1b9a;
+}
+
+.tool-card p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.tool-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #6a1b9a;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+}
