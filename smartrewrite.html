@@ -18,13 +18,48 @@
   <section class="tool-section">
     <h1>📝 SmartRewrite</h1>
     <p>Paste your content below and get a refined rewrite in seconds.</p>
-    <textarea placeholder="Enter your text..."></textarea>
-    <button>Rewrite</button>
+
+    <!-- 📝 Input -->
+    <textarea id="inputText" placeholder="Enter your text..."></textarea>
+
+    <!-- 🚀 Trigger Button -->
+    <button onclick="handleRewrite()">Rewrite</button>
+
+    <!-- 📤 Output Area -->
     <div class="output-box">
       <h3>✨ Output</h3>
-      <p>Your improved text will appear here.</p>
+      <p id="outputText">Your improved text will appear here.</p>
     </div>
   </section>
 
+  <!-- 🔧 Inline Script -->
+  <script>
+    async function handleRewrite() {
+      const input = document.getElementById("inputText").value.trim();
+      const outputDiv = document.getElementById("outputText");
+
+      if (!input) {
+        outputDiv.textContent = "⚠️ Please enter some text first.";
+        return;
+      }
+
+      outputDiv.textContent = "⏳ Rewriting...";
+
+      try {
+        const res = await fetch("https://gemini-api-backend-cfry.onrender.com/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt: "Improve this text: " + input })
+        });
+
+        const data = await res.json();
+        outputDiv.textContent = data.answer || "✅ No response received.";
+      } catch (err) {
+        outputDiv.textContent = "⚠️ Error connecting to backend.";
+        console.error(err);
+      }
+    }
+  </script>
+
 </body>
-</html>
+    </html>
