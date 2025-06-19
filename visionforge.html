@@ -5,6 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VisionForge - MasterAI</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    button {
+      padding: 12px 24px;
+      background-color: var(--primary, #875A7B);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--btn-hover, #a26e98);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    button:active {
+      transform: scale(0.96);
+    }
+
+    .output-box pre {
+      background: var(--card-bg, #f7f5f8);
+      padding: 20px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 15px;
+      line-height: 1.5;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      animation: fadeIn 0.6s ease forwards;
+      white-space: pre-wrap;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+  </style>
 </head>
 <body class="tool-page">
 
@@ -26,7 +65,7 @@
 
     <div class="output-box">
       <h3>🖼️ AI Image Result</h3>
-      <p id="visionResult">[Generated image preview will appear here]</p>
+      <pre><code id="visionResult">// Your image concept will appear here</code></pre>
     </div>
   </section>
 
@@ -34,25 +73,28 @@
     async function handleVision() {
       const idea = document.getElementById("visionPrompt").value.trim();
       const output = document.getElementById("visionResult");
+      const preBlock = output.parentElement;
 
       if (!idea) {
-        output.textContent = "⚠️ Please enter an image idea.";
+        output.textContent = "// ⚠️ Please enter an image idea.";
+        preBlock.style.opacity = 1;
         return;
       }
 
-      output.textContent = "🧠 Thinking visually...";
+      output.textContent = "// 🧠 Generating visual concept...";
+      preBlock.style.opacity = 1;
 
       try {
         const res = await fetch("https://gemini-api-backend-cfry.onrender.com/ask", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ prompt: "Create an image concept for: " + idea })
+          body: JSON.stringify({ prompt: "Describe a creative visual concept for this: " + idea })
         });
 
         const data = await res.json();
-        output.textContent = data.answer || "✅ No response received";
+        output.textContent = data.answer || "// ✅ No output received.";
       } catch (err) {
-        output.textContent = "⚠️ Backend error: Could not fetch image description.";
+        output.textContent = "// ⚠️ Backend error!";
         console.error(err);
       }
     }
