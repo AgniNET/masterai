@@ -90,8 +90,7 @@ nav a:hover {
 .cta:hover {
   background: #a26e98;
   transform: translateY(-2px);
-}
-
+} 
 /* === Tools Section === */
 
 .tools {
@@ -125,6 +124,11 @@ nav a:hover {
 .tool-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.tool-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
 }
 
 .tool-card h3 {
@@ -244,4 +248,4 @@ footer p {
   footer p {
     font-size: 13px;
   }
-    }
+}
