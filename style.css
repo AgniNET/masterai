@@ -1,34 +1,233 @@
+/* === MasterAI Odoo-Style Global Theme === */
+
+:root {
+  --primary: #875A7B;
+  --accent-bg: #f7f5f8;
+  --hero-bg: #f0eef1;
+  --text-dark: #333333;
+  --text-muted: #666666;
+  --max-width: 1200px;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* === Header / Navbar === */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+nav a {
+  margin-left: 24px;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--primary);
+}
+
+/* === Hero Section === */
+
+.hero {
+  padding: 100px 10%;
+  text-align: center;
+  background: var(--hero-bg);
+}
+
+.hero h1 {
+  font-size: 42px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.cta {
+  padding: 12px 28px;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.cta:hover {
+  background: #a26e98;
+  transform: translateY(-2px);
+}
+
+/* === Tools Section === */
+
+.tools {
+  padding: 80px 10%;
+  background: white;
+  text-align: center;
+}
+
+.tools h2 {
+  font-size: 32px;
+  margin-bottom: 50px;
+  color: var(--text-dark);
+}
+
+.tool-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.tool-card {
+  background: white;
+  padding: 28px 24px;
+  border-radius: 14px;
+  max-width: 300px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.tool-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: var(--primary);
+}
+
+.tool-card p {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.tool-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.tool-btn:hover {
+  background: #a26e98;
+  transform: translateY(-2px);
+}
+
+/* === About Section === */
+
 .about {
   padding: 80px 10%;
-  background: #ffffff;
+  background: var(--accent-bg);
   text-align: center;
 }
 
 .about h2 {
   font-size: 30px;
-  color: #333;
+  color: var(--text-dark);
   margin-bottom: 20px;
 }
 
 .about p {
   font-size: 18px;
-  color: #555;
+  color: var(--text-muted);
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
 }
+
+/* === Footer === */
+
 footer {
   padding: 40px 10%;
-  background: #f3f3f3;
+  background: #fff;
   text-align: center;
   border-top: 1px solid #ddd;
 }
+
 footer p {
   font-size: 14px;
   color: #777;
   margin: 5px 0;
 }
+
+/* === Responsive Design === */
+
 @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 5%;
+  }
+
+  nav a {
+    margin: 8px;
+    display: inline-block;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .tools h2 {
+    font-size: 26px;
+  }
+
+  .tool-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tool-card {
+    width: 90%;
+    max-width: 400px;
+  }
+
   .about h2 {
     font-size: 24px;
   }
@@ -45,4 +244,4 @@ footer p {
   footer p {
     font-size: 13px;
   }
-}
+    }
