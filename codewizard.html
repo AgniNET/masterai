@@ -20,13 +20,44 @@
   <section class="tool-section">
     <h1>💻 CodeWizard</h1>
     <p>Describe what you want to build, and AI writes your code.</p>
-    <textarea placeholder="Explain your code idea here..."></textarea>
-    <button>Generate Code</button>
+
+    <textarea id="codePrompt" placeholder="Explain your code idea here..."></textarea>
+
+    <button onclick="handleCode()">Generate Code</button>
+
     <div class="output-box">
       <h3>📄 AI Generated Code</h3>
-      <pre><code>// Your code output will be shown here</code></pre>
+      <pre><code id="codeResult">// Your code output will be shown here</code></pre>
     </div>
   </section>
+
+  <script>
+    async function handleCode() {
+      const input = document.getElementById("codePrompt").value.trim();
+      const outputEl = document.getElementById("codeResult");
+
+      if (!input) {
+        outputEl.textContent = "// ⚠️ Please enter something first";
+        return;
+      }
+
+      outputEl.textContent = "// ⏳ Generating code...";
+
+      try {
+        const res = await fetch("https://gemini-api-backend-cfry.onrender.com/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt: "Generate code for: " + input })
+        });
+
+        const data = await res.json();
+        outputEl.textContent = data.answer || "// ✅ No response text received.";
+      } catch (err) {
+        outputEl.textContent = "// ⚠️ Error reaching backend!";
+        console.error(err);
+      }
+    }
+  </script>
 
 </body>
 </html>
