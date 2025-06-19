@@ -1,154 +1,48 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #fff;
-  color: #333;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 10%;
-  background: #fff;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid #eee;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: 600;
-  color: #875A7B;
-}
-
-nav a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-
-.hero {
-  padding: 100px 10%;
-  text-align: center;
-  background: linear-gradient(to right, #eee, #fdfdfd);
-}
-
-.hero h1 {
-  font-size: 40px;
-  color: #875A7B;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
-.cta {
-  padding: 12px 24px;
-  background: #875A7B;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-/* --- Tools Section Styling --- */
-
-.tools {
+.about {
   padding: 80px 10%;
-  background: #f9f9f9;
+  background: #ffffff;
   text-align: center;
 }
 
-.tools h2 {
-  font-size: 32px;
-  margin-bottom: 50px;
+.about h2 {
+  font-size: 30px;
   color: #333;
-}
-
-.tool-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-.tool-card {
-  background: white;
-  padding: 25px 20px;
-  border-radius: 12px;
-  max-width: 300px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-}
-
-.tool-card:hover {
-  transform: translateY(-5px);
-}
-
-.tool-card h3 {
-  font-size: 22px;
-  margin-bottom: 10px;
-  color: #6a1b9a;
-}
-
-.tool-card p {
-  font-size: 16px;
-  color: #555;
   margin-bottom: 20px;
 }
 
-.tool-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #6a1b9a;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 500;
+.about p {
+  font-size: 18px;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
-
-/* --- Responsive Design for Mobile --- */
-
+footer {
+  padding: 40px 10%;
+  background: #f3f3f3;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+footer p {
+  font-size: 14px;
+  color: #777;
+  margin: 5px 0;
+}
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 5%;
+  .about h2 {
+    font-size: 24px;
   }
 
-  nav a {
-    margin: 10px;
-    display: inline-block;
-  }
-
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .hero p {
+  .about p {
     font-size: 16px;
+    padding: 0 10px;
   }
 
-  .tools h2 {
-    font-size: 26px;
+  footer {
+    padding: 30px 5%;
   }
 
-  .tool-container {
-    flex-direction: column;
-    align-items: center;
+  footer p {
+    font-size: 13px;
   }
-
-  .tool-card {
-    width: 90%;
-    max-width: 400px;
-  }
-    }
+}
