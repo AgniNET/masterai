@@ -323,3 +323,23 @@ footer p {
   color: var(--text-dark);
   box-shadow: 0 6px 20px var(--shadow);
   }
+button {
+  padding: 10px 24px;
+  background-color: var(--primary, #875A7B);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--btn-hover, #a26e98);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: scale(0.95);
+  }
