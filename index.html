@@ -16,29 +16,35 @@
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- ====== Header ====== -->
   <header>
     <div class="logo">MasterAI</div>
+
+    <!-- Navigation Links -->
     <nav>
       <a href="#home">Home</a>
       <a href="#tools">Tools</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
+
+    <!-- Dark Mode Toggle Button -->
+    <button class="dark-toggle" onclick="document.body.classList.toggle('dark-mode')">🌗</button>
   </header>
 
-  <!-- Hero Section -->
+  <!-- ====== Hero Section ====== -->
   <section class="hero" id="home" data-aos="fade-up">
     <h1>Welcome to MasterAI</h1>
     <p>Your intelligent assistant to rewrite, generate, and build smartly.</p>
     <a href="#tools" class="cta">Explore Tools</a>
   </section>
 
-  <!-- Tools Section -->
+  <!-- ====== Tools Section ====== -->
   <section class="tools" id="tools">
     <h2 data-aos="fade-up">Explore AI Tools</h2>
     <div class="tool-container">
 
+      <!-- Tool 1 -->
       <div class="tool-card" data-aos="fade-up">
         <div class="tool-icon">📝</div>
         <h3>SmartRewrite</h3>
@@ -46,6 +52,7 @@
         <a href="#" class="tool-btn">Try Now</a>
       </div>
 
+      <!-- Tool 2 -->
       <div class="tool-card" data-aos="fade-up" data-aos-delay="100">
         <div class="tool-icon">🎨</div>
         <h3>VisionForge</h3>
@@ -53,6 +60,7 @@
         <a href="#" class="tool-btn">Generate</a>
       </div>
 
+      <!-- Tool 3 -->
       <div class="tool-card" data-aos="fade-up" data-aos-delay="200">
         <div class="tool-icon">💻</div>
         <h3>CodeWizard</h3>
@@ -63,20 +71,24 @@
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- ====== About Section ====== -->
   <section class="about" id="about" data-aos="fade-up">
     <h2>About the Creator</h2>
     <p>Anand is the visionary behind MasterAI — designing intuitive, human-friendly AI tools for the future.</p>
   </section>
 
-  <!-- Footer -->
+  <!-- ====== Footer ====== -->
   <footer id="contact" data-aos="fade-up">
-    <p>Contact: support@masterai.com</p>
+    <p>Contact: <a href="mailto:support@masterai.com">support@masterai.com</a></p>
     <p>© 2025 MasterAI. All rights reserved.</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- ====== Scripts ====== -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
   <script src="script.js"></script>
+
 </body>
-  </html>
+          </html>
