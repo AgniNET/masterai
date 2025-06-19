@@ -283,3 +283,43 @@ footer p {
   background: var(--primary);
   color: white;
   }
+.tool-section {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.tool-section textarea {
+  width: 100%;
+  max-width: 700px;
+  height: 180px;
+  padding: 14px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: vertical;
+}
+
+.tool-section button {
+  background: var(--primary);
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.tool-section button:hover {
+  background: var(--btn-hover);
+}
+
+.output-box {
+  max-width: 700px;
+  margin: 40px auto 0;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 10px;
+  color: var(--text-dark);
+  box-shadow: 0 6px 20px var(--shadow);
+  }
