@@ -267,3 +267,19 @@ footer p {
     font-size: 13px;
   }
   }
+.dark-toggle {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 20px;
+}
+
+.dark-toggle:hover {
+  background: var(--primary);
+  color: white;
+  }
