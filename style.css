@@ -343,3 +343,101 @@ button:hover {
 button:active {
   transform: scale(0.95);
   }
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f5f5;
+  color: #222;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background: #1e1e1e;
+  color: #f2f2f2;
+}
+
+header {
+  background: #875A7B;
+  color: white;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.tool-page {
+  padding: 40px 20px;
+}
+
+.tool-section {
+  max-width: 800px;
+  margin: auto;
+}
+
+.tool-section h1 {
+  color: #875A7B;
+  font-size: 28px;
+}
+
+textarea, input {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px;
+  margin-top: 12px;
+  margin-bottom: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #875A7B;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #a26e98;
+  transform: translateY(-2px);
+}
+
+.output-box {
+  background: #f1f1f1;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  opacity: 0;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+body.dark .output-box {
+  background: #2c2c2c;
+}
+
+pre {
+  white-space: pre-wrap;
+  font-family: monospace;
+  font-size: 14.5px;
+  color: #333;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
