@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CreativeWrite - MasterAI</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #fafafa;
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #875A7B;
+    }
+    select, textarea, button {
+      width: 100%;
+      font-size: 16px;
+      margin-top: 14px;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #875A7B;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    button:hover {
+      background: #a26e98;
+      transform: translateY(-2px);
+    }
+    pre {
+      background: #222;
+      color: #0f0;
+      padding: 20px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      margin-top: 24px;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎭 CreativeWrite</h1>
+  <p>Choose a format, give a theme or prompt, and let AI create something beautiful!</p>
+
+  <label for="type">Select format:</label>
+  <select id="type">
+    <option>Poem</option>
+    <option>Short Story</option>
+    <option>Joke</option>
+    <option>Song Lyrics</option>
+    <option>Rap Verse</option>
+  </select>
+
+  <textarea id="idea" placeholder="Write your theme or creative idea here..."></textarea>
+  <button onclick="createMagic()">Generate</button>
+
+  <h3>✨ Creative Output:</h3>
+  <pre id="output">// AI creation will appear here</pre>
+
+  <script>
+    async function createMagic() {
+      const type = document.getElementById('type').value;
+      const idea = document.getElementById('idea').value.trim();
+      const output = document.getElementById('output');
+
+      if (!idea) {
+        output.textContent = "// Please enter a creative theme or idea.";
+        return;
+      }
+
+      output.textContent = "// Crafting magic...";
+
+      try {
+        const res = await fetch("https://gemini-api-backend-cfry.onrender.com/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            prompt: `Write a ${type.toLowerCase()} based on this idea: ${idea}`
+          })
+        });
+
+        const data = await res.json();
+        output.textContent = data.answer || "// No creative output received.";
+      } catch (e) {
+        output.textContent = "// Error reaching backend.";
+        console.error(e);
+      }
+    }
+  </script>
+
+</body>
+</html>
