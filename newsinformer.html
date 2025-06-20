@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NewsInformer - MasterAI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="tool-page">
+
+  <header>
+    <div class="logo">MasterAI</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="smartrewrite.html">SmartRewrite</a>
+      <a href="creativewrite.html">CreativeWrite</a>
+    </nav>
+  </header>
+
+  <section class="tool-section">
+    <h1>📰 NewsInformer</h1>
+    <p>Type a headline, topic, or category — AI will summarize it concisely!</p>
+
+    <input type="text" id="newsPrompt" placeholder="e.g. Global warming updates, latest space news..." />
+    <button onclick="fetchNews()">Summarize</button>
+
+    <div class="output-box">
+      <h3>🧠 AI Summary:</h3>
+      <pre id="newsResult">// Summary will appear here</pre>
+    </div>
+  </section>
+
+  <script>
+    async function fetchNews() {
+      const input = document.getElementById("newsPrompt").value.trim();
+      const output = document.getElementById("newsResult");
+      const section = output.parentElement;
+
+      if (!input) {
+        output.textContent = "// ⚠️ Please enter a news topic.";
+        section.style.opacity = 1;
+        return;
+      }
+
+      output.textContent = "// 🔍 Fetching summary...";
+      section.style.opacity = 1;
+
+      try {
+        const res = await fetch("https://gemini-api-backend-cfry.onrender.com/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt: `Summarize the latest news about: ${input}` })
+        });
+
+        const data = await res.json();
+        output.textContent = data.answer || "// ✅ No news summary received.";
+      } catch (err) {
+        output.textContent = "// ⚠️ Backend error occurred!";
+        console.error(err);
+      }
+    }
+  </script>
+
+</body>
+</html>
