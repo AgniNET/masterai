@@ -40,11 +40,16 @@
       color: white;
     }
 
+    .logo {
+      font-weight: bold;
+      font-size: 22px;
+    }
+
     .nav-links a {
       color: white;
       text-decoration: none;
       margin-left: 20px;
-      font-weight: bold;
+      font-weight: 500;
     }
 
     .toggle {
@@ -53,6 +58,7 @@
       color: white;
       border-radius: 5px;
       padding: 4px 10px;
+      margin-left: 12px;
       cursor: pointer;
     }
 
@@ -110,11 +116,11 @@
       left: 0;
       height: 100%;
       width: 100%;
-      background: rgba(255,255,255,0.8);
+      background: rgba(255,255,255,0.85);
       z-index: 1000;
       justify-content: center;
       align-items: center;
-      font-size: 24px;
+      font-size: 22px;
       color: var(--primary);
     }
   </style>
@@ -130,7 +136,7 @@
       <a href="#tools">Tools</a>
       <a href="about.html">About</a>
       <a href="support.html">Support</a>
-      <button class="toggle" onclick="toggleDark()">🌗</button>
+      <button class="toggle" onclick="toggleDark()" aria-label="Toggle dark mode">🌗</button>
     </nav>
   </header>
 
@@ -140,8 +146,7 @@
   </section>
 
   <section id="tools" class="tool-grid">
-
-    <!-- Tool Cards -->
+    <!-- Add as many tools as you like -->
     <div class="tool-card">
       <div class="tool-icon">📝</div>
       <h3>SmartRewrite</h3>
@@ -152,80 +157,32 @@
     <div class="tool-card">
       <div class="tool-icon">💻</div>
       <h3>CodeWizard</h3>
-      <p>Turn plain ideas into working code.</p>
+      <p>Turn ideas into functional code easily.</p>
       <a href="codewizard.html" class="tool-btn" onclick="showLoader()">Launch</a>
     </div>
 
     <div class="tool-card">
       <div class="tool-icon">🎨</div>
       <h3>VisionForge</h3>
-      <p>Prompt-based concept visuals and captions.</p>
-      <a href="visionforge.html" class="tool-btn" onclick="showLoader()">Create</a>
+      <p>Create visuals and image ideas with AI.</p>
+      <a href="visionforge.html" class="tool-btn" onclick="showLoader()">Generate</a>
     </div>
 
     <div class="tool-card">
       <div class="tool-icon">🖋️</div>
       <h3>CreativeWrite</h3>
-      <p>Stories, poems, songs, and jokes generator.</p>
-      <a href="creativewrite.html" class="tool-btn" onclick="showLoader()">Inspire Me</a>
+      <p>Generate poems, stories, songs or jokes.</p>
+      <a href="creativewrite.html" class="tool-btn" onclick="showLoader()">Inspire</a>
     </div>
 
     <div class="tool-card">
       <div class="tool-icon">📰</div>
       <h3>NewsInformer</h3>
-      <p>Daily insights & summaries, simplified.</p>
-      <a href="newsinformer.html" class="tool-btn" onclick="showLoader()">Stay Informed</a>
+      <p>Summarize current topics & headlines.</p>
+      <a href="newsinformer.html" class="tool-btn" onclick="showLoader()">Catch Up</a>
     </div>
 
-    <div class="tool-card">
-      <div class="tool-icon">💬</div>
-      <h3>ChatBuddy</h3>
-      <p>Friendly banter, jokes and chill convos.</p>
-      <a href="timepasschat.html" class="tool-btn" onclick="showLoader()">Let's Talk</a>
-    </div>
-
-    <div class="tool-card">
-      <div class="tool-icon">🌅</div>
-      <h3>AestheticVibes</h3>
-      <p>Vibe captions, aesthetic quotes & mood prompts.</p>
-      <a href="aesthetic.html" class="tool-btn" onclick="showLoader()">Get Vibes</a>
-    </div>
-
-    <div class="tool-card">
-      <div class="tool-icon">🔮</div>
-      <h3>ZodiacSeer</h3>
-      <p>Horoscope reader & daily astrology Q&A.</p>
-      <a href="astrologer.html" class="tool-btn" onclick="showLoader()">Check Stars</a>
-    </div>
-
-    <div class="tool-card">
-      <div class="tool-icon">🎓</div>
-      <h3>EduSpark</h3>
-      <p>Ask doubts, solve concepts and learn stuff.</p>
-      <a href="education.html" class="tool-btn" onclick="showLoader()">Start Learning</a>
-    </div>
-
-    <div class="tool-card">
-      <div class="tool-icon">💻</div>
-      <h3>HackEdge</h3>
-      <p>Hacking basics, OSINT tips, terminal tutor.</p>
-      <a href="ethicalhack.html" class="tool-btn" onclick="showLoader()">Explore Safely</a>
-    </div>
-
-    <div class="tool-card">
-      <div class="tool-icon">🧠</div>
-      <h3>MathMaze</h3>
-      <p>Reasoning puzzles, math logic, aptitude prep.</p>
-      <a href="mathreasoning.html" class="tool-btn" onclick="showLoader()">Try Now</a>
-    </div>
-
-    <div class="tool-card">
-      <div class="tool-icon">🤝</div>
-      <h3>LifeSage</h3>
-      <p>Advice on emotions, work, self-help, growth.</p>
-      <a href="advisehelper.html" class="tool-btn" onclick="showLoader()">Ask Now</a>
-    </div>
-
+    <!-- Add more tool cards as you expand -->
   </section>
 
   <footer>
@@ -235,13 +192,21 @@
   <script>
     function toggleDark() {
       document.body.classList.toggle('dark');
+      const isDark = document.body.classList.contains('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
     }
 
     function showLoader() {
-      const loader = document.getElementById("loader");
-      loader.style.display = "flex";
+      document.getElementById("loader").style.display = "flex";
     }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const saved = localStorage.getItem('theme');
+      if (saved === 'dark') {
+        document.body.classList.add('dark');
+      }
+    });
   </script>
 
 </body>
-        </html>
+</html>
