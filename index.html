@@ -2,45 +2,63 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MasterAI Toolkit</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
+    :root {
+      --primary: #875A7B;
+      --bg: #ffffff;
+      --text: #222222;
+      --card: #f2f2f2;
+    }
+
+    body.dark {
+      --bg: #1e1e1e;
+      --text: #f0f0f0;
+      --card: #2c2c2c;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background: #f5f5f5;
+    }
+
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
     }
 
     header {
-      background-color: #875A7B;
-      color: white;
-      padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      background: var(--primary);
+      padding: 16px 32px;
+      color: white;
     }
 
-    .logo {
-      font-size: 24px;
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
       font-weight: bold;
+    }
+
+    .toggle {
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+      border-radius: 5px;
+      padding: 4px 10px;
+      cursor: pointer;
     }
 
     .hero {
       text-align: center;
-      padding: 50px 20px;
-      background: #ede6ec;
-    }
-
-    .hero h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: #555;
+      padding: 60px 20px 30px;
     }
 
     .tool-grid {
@@ -51,153 +69,179 @@
     }
 
     .tool-card {
-      background: white;
-      border-radius: 12px;
+      background: var(--card);
       padding: 24px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
     }
 
     .tool-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-5px);
     }
 
     .tool-icon {
-      font-size: 36px;
+      font-size: 32px;
       margin-bottom: 10px;
-    }
-
-    .tool-card h3 {
-      margin: 8px 0;
     }
 
     .tool-btn {
       display: inline-block;
-      margin-top: 12px;
+      margin-top: 14px;
       padding: 10px 18px;
-      background: #875A7B;
+      background: var(--primary);
       color: white;
       text-decoration: none;
       border-radius: 6px;
-      transition: background 0.2s ease;
-    }
-
-    .tool-btn:hover {
-      background: #a26e98;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      color: #777;
-      background: #f2f2f2;
+      font-size: 14px;
+      background: #ececec;
+    }
+
+    /* Loader */
+    #loader {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(255,255,255,0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      color: var(--primary);
     }
   </style>
 </head>
 <body>
 
+  <div id="loader">⏳ Loading...</div>
+
   <header>
     <div class="logo">MasterAI</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="#tools">Tools</a>
+      <a href="about.html">About</a>
+      <a href="support.html">Support</a>
+      <button class="toggle" onclick="toggleDark()">🌗</button>
+    </nav>
   </header>
 
   <section class="hero">
     <h1>🧠 MasterAI Tool Suite</h1>
-    <p>All your intelligent productivity tools in one place</p>
+    <p>Everything you need to build, write, learn and explore</p>
   </section>
 
-  <section class="tool-grid">
+  <section id="tools" class="tool-grid">
 
-    <!-- ✨ Smart Tools -->
+    <!-- Tool Cards -->
     <div class="tool-card">
       <div class="tool-icon">📝</div>
       <h3>SmartRewrite</h3>
-      <p>Enhance your writing with clarity and style.</p>
-      <a href="smartrewrite.html" class="tool-btn">Try Now</a>
+      <p>Enhance your writing quality in seconds.</p>
+      <a href="smartrewrite.html" class="tool-btn" onclick="showLoader()">Try Now</a>
     </div>
 
     <div class="tool-card">
       <div class="tool-icon">💻</div>
       <h3>CodeWizard</h3>
-      <p>Convert your ideas into runnable code.</p>
-      <a href="codewizard.html" class="tool-btn">Start Coding</a>
+      <p>Turn plain ideas into working code.</p>
+      <a href="codewizard.html" class="tool-btn" onclick="showLoader()">Launch</a>
     </div>
 
     <div class="tool-card">
       <div class="tool-icon">🎨</div>
       <h3>VisionForge</h3>
-      <p>Generate stunning visuals from prompts.</p>
-      <a href="visionforge.html" class="tool-btn">Generate Art</a>
+      <p>Prompt-based concept visuals and captions.</p>
+      <a href="visionforge.html" class="tool-btn" onclick="showLoader()">Create</a>
     </div>
 
-    <!-- 🔥 New Tool Cards -->
     <div class="tool-card">
       <div class="tool-icon">🖋️</div>
       <h3>CreativeWrite</h3>
-      <p>Create poems, stories, songs, jokes, and more.</p>
-      <a href="creativewrite.html" class="tool-btn">Try Now</a>
+      <p>Stories, poems, songs, and jokes generator.</p>
+      <a href="creativewrite.html" class="tool-btn" onclick="showLoader()">Inspire Me</a>
     </div>
 
     <div class="tool-card">
       <div class="tool-icon">📰</div>
       <h3>NewsInformer</h3>
-      <p>Summarize and discover trending news updates.</p>
-      <a href="newsinformer.html" class="tool-btn">Read News</a>
+      <p>Daily insights & summaries, simplified.</p>
+      <a href="newsinformer.html" class="tool-btn" onclick="showLoader()">Stay Informed</a>
     </div>
 
     <div class="tool-card">
       <div class="tool-icon">💬</div>
       <h3>ChatBuddy</h3>
-      <p>Have casual or quirky timepass conversations.</p>
-      <a href="timepasschat.html" class="tool-btn">Chat Now</a>
+      <p>Friendly banter, jokes and chill convos.</p>
+      <a href="timepasschat.html" class="tool-btn" onclick="showLoader()">Let's Talk</a>
     </div>
 
     <div class="tool-card">
       <div class="tool-icon">🌅</div>
       <h3>AestheticVibes</h3>
-      <p>Get aesthetic captions, quotes & daily vibes.</p>
-      <a href="aesthetic.html" class="tool-btn">Get Vibes</a>
+      <p>Vibe captions, aesthetic quotes & mood prompts.</p>
+      <a href="aesthetic.html" class="tool-btn" onclick="showLoader()">Get Vibes</a>
     </div>
 
     <div class="tool-card">
       <div class="tool-icon">🔮</div>
       <h3>ZodiacSeer</h3>
-      <p>Get astrology predictions and zodiac insights.</p>
-      <a href="astrologer.html" class="tool-btn">View Horoscope</a>
+      <p>Horoscope reader & daily astrology Q&A.</p>
+      <a href="astrologer.html" class="tool-btn" onclick="showLoader()">Check Stars</a>
     </div>
 
     <div class="tool-card">
       <div class="tool-icon">🎓</div>
       <h3>EduSpark</h3>
-      <p>Ask doubts, learn concepts, and grow smarter.</p>
-      <a href="education.html" class="tool-btn">Learn Now</a>
+      <p>Ask doubts, solve concepts and learn stuff.</p>
+      <a href="education.html" class="tool-btn" onclick="showLoader()">Start Learning</a>
     </div>
 
     <div class="tool-card">
       <div class="tool-icon">💻</div>
       <h3>HackEdge</h3>
-      <p>Explore ethical hacking tips and terminal tricks.</p>
-      <a href="ethicalhack.html" class="tool-btn">Explore</a>
+      <p>Hacking basics, OSINT tips, terminal tutor.</p>
+      <a href="ethicalhack.html" class="tool-btn" onclick="showLoader()">Explore Safely</a>
     </div>
 
     <div class="tool-card">
       <div class="tool-icon">🧠</div>
       <h3>MathMaze</h3>
-      <p>Solve reasoning puzzles, logic & math problems.</p>
-      <a href="mathreasoning.html" class="tool-btn">Try It</a>
+      <p>Reasoning puzzles, math logic, aptitude prep.</p>
+      <a href="mathreasoning.html" class="tool-btn" onclick="showLoader()">Try Now</a>
     </div>
 
     <div class="tool-card">
       <div class="tool-icon">🤝</div>
       <h3>LifeSage</h3>
-      <p>Get helpful advice and emotional support.</p>
-      <a href="advisehelper.html" class="tool-btn">Ask Now</a>
+      <p>Advice on emotions, work, self-help, growth.</p>
+      <a href="advisehelper.html" class="tool-btn" onclick="showLoader()">Ask Now</a>
     </div>
 
   </section>
 
   <footer>
-    &copy; 2025 MasterAI. Built with 💜 by Anand Vaibhav.
+    © 2025 MasterAI · Built with 💜 by Anand + Copilot
   </footer>
+
+  <script>
+    function toggleDark() {
+      document.body.classList.toggle('dark');
+    }
+
+    function showLoader() {
+      const loader = document.getElementById("loader");
+      loader.style.display = "flex";
+    }
+  </script>
 
 </body>
         </html>
