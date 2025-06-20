@@ -1,12 +1,11 @@
-/* === MasterAI Global Theme === */
 :root {
   --primary: #875A7B;
   --accent-bg: #f7f5f8;
   --hero-bg: #f0eef1;
-  --text-dark: #333333;
-  --text-muted: #666666;
-  --card-bg: #ffffff;
-  --footer-bg: #ffffff;
+  --text-dark: #333;
+  --text-muted: #666;
+  --card-bg: #fff;
+  --footer-bg: #f5f5f5;
   --btn-hover: #a26e98;
   --shadow: rgba(0, 0, 0, 0.06);
 }
@@ -15,12 +14,12 @@ body.dark {
   --primary: #C88FC4;
   --accent-bg: #1e1e2e;
   --hero-bg: #1b1b2d;
-  --text-dark: #eeeeee;
-  --text-muted: #aaaaaa;
+  --text-dark: #eee;
+  --text-muted: #aaa;
   --card-bg: #2b2b3b;
   --footer-bg: #1a1a28;
   --btn-hover: #d69eda;
-  --shadow: rgba(0, 0, 0, 0.25);
+  --shadow: rgba(0, 0, 0, 0.3);
 }
 
 /* === Reset === */
@@ -31,7 +30,7 @@ body.dark {
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins', sans-serif;
   background: var(--accent-bg);
   color: var(--text-dark);
   transition: background 0.3s ease, color 0.3s ease;
@@ -53,7 +52,7 @@ header {
 }
 
 header.scrolled {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 8px var(--shadow);
   backdrop-filter: blur(4px);
 }
 
@@ -67,48 +66,124 @@ nav a {
   text-decoration: none;
   color: white;
   font-weight: 500;
+  transition: color 0.2s ease;
 }
 
-.toggle {
+nav a:hover {
+  text-decoration: underline;
+}
+
+.dark-toggle,
+.profile-btn {
+  margin-left: 12px;
   background: transparent;
   border: 1px solid white;
   color: white;
-  border-radius: 6px;
   padding: 5px 12px;
-  margin-left: 12px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.2s;
 }
 
-.toggle:hover {
+.dark-toggle:hover,
+.profile-btn:hover {
   background: white;
   color: var(--primary);
+}
+
+/* === Hamburger + Sidebar === */
+.hamburger {
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+  color: white;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 240px;
+  height: 100%;
+  background: var(--card-bg);
+  box-shadow: -2px 0 12px var(--shadow);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar a {
+  margin: 10px 0;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.sidebar .close {
+  margin-left: auto;
+  font-size: 20px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--text-dark);
 }
 
 /* === Hero Section === */
 .hero {
   text-align: center;
-  padding: 60px 20px 30px;
+  padding: 80px 20px 60px;
   background: var(--hero-bg);
 }
 
 .hero h1 {
-  font-size: 36px;
+  font-size: 38px;
   color: var(--primary);
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .hero p {
   font-size: 18px;
   color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-/* === Tool Grid === */
-.tool-grid {
+.cta {
+  margin-top: 24px;
+  display: inline-block;
+  background: var(--primary);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 6px 20px var(--shadow);
+  transition: 0.3s ease;
+}
+
+.cta:hover {
+  background: var(--btn-hover);
+  transform: translateY(-2px);
+}
+
+/* === Tools Grid === */
+.tools {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.tools h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+  color: var(--primary);
+}
+
+.tool-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-  padding: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
 }
 
 .tool-card {
@@ -117,28 +192,16 @@ nav a {
   border-radius: 12px;
   box-shadow: 0 4px 12px var(--shadow);
   transition: transform 0.2s ease;
-  overflow: hidden;
   position: relative;
 }
 
 .tool-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
 .tool-icon {
   font-size: 32px;
   margin-bottom: 10px;
-}
-
-.tool-card h3 {
-  color: var(--primary);
-  font-size: 20px;
-  margin-bottom: 8px;
-}
-
-.tool-card p {
-  font-size: 15px;
-  color: var(--text-muted);
 }
 
 .tool-btn {
@@ -171,14 +234,90 @@ nav a {
   }
 }
 
+/* === About + Contact + Feedback Shared === */
+.about {
+  padding: 80px 10%;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 26px;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.about p {
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* === FAQ Section === */
+.faq {
+  padding: 60px 10%;
+}
+
+.faq h2 {
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.faq details {
+  background: var(--card-bg);
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px var(--shadow);
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.faq summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faq p {
+  margin-top: 10px;
+  color: var(--text-muted);
+}
+
+/* === Reviews Marquee === */
+.review-marquee {
+  background: var(--card-bg);
+  padding: 40px 10%;
+  text-align: center;
+}
+
+.review-marquee h2 {
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+marquee {
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
 /* === Footer === */
 footer {
   text-align: center;
-  padding: 20px;
+  padding: 30px 10%;
   font-size: 14px;
   background: var(--footer-bg);
   color: var(--text-muted);
   border-top: 1px solid #ddd;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--text-muted);
+  margin: 0 8px;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 
 /* === Loader === */
@@ -199,27 +338,16 @@ footer {
 
 /* === Responsive === */
 @media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-    padding: 12px 5%;
+  nav.desktop-nav {
+    display: none;
   }
-
-  nav a {
-    margin: 8px;
-    display: inline-block;
+  .hamburger {
+    display: block;
   }
-
+  .tool-container {
+    grid-template-columns: 1fr;
+  }
   .hero h1 {
     font-size: 28px;
-  }
-
-  .hero p {
-    font-size: 15px;
-  }
-
-  .tool-card {
-    width: 90%;
-    max-width: 400px;
   }
   }
