@@ -5,7 +5,7 @@ AOS.init({
   once: true
 });
 
-// === Navbar Scroll Effect ===
+// === Navbar Scroll Shadow ===
 window.addEventListener('scroll', function () {
   const nav = document.querySelector('header');
   if (nav) nav.classList.toggle('scrolled', window.scrollY > 10);
@@ -18,16 +18,16 @@ function toggleDark() {
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
 
-// === Load Dark Mode Preference ===
-document.addEventListener('DOMContentLoaded', () => {
+// === Load Dark Mode on Page Load ===
+window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark');
   }
 });
 
-// === Ripple Click Effect ===
+// === Ripple Effect on Buttons ===
 document.addEventListener('click', function (e) {
-  const btn = e.target.closest('button, .tool-btn');
+  const btn = e.target.closest('button, .tool-btn, .cta');
   if (!btn) return;
 
   const ripple = document.createElement('span');
@@ -42,25 +42,34 @@ document.addEventListener('click', function (e) {
   setTimeout(() => ripple.remove(), 600);
 });
 
-// === Smooth Scroll for Anchor Links ===
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', function (e) {
+// === Sidebar Toggle ===
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  if (sidebar) {
+    const isOpen = sidebar.style.right === "0px";
+    sidebar.style.right = isOpen ? "-250px" : "0px";
+  }
+}
+
+// === Loader Show on Tool Click ===
+function showLoader() {
+  const loader = document.getElementById("loader");
+  if (loader) loader.style.display = "flex";
+}
+
+// === Hide Loader on Back Navigation ===
+window.addEventListener('pageshow', () => {
+  const loader = document.getElementById("loader");
+  if (loader) loader.style.display = "none";
+});
+
+// === Smooth Scroll to Anchors ===
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
       e.preventDefault();
       target.scrollIntoView({ behavior: 'smooth' });
     }
   });
-});
-
-// === Loader Show ===
-function showLoader() {
-  const loader = document.getElementById("loader");
-  if (loader) loader.style.display = "flex";
-}
-
-// === Loader Hide on Back Navigation (Fix for browser Back) ===
-window.addEventListener('pageshow', () => {
-  const loader = document.getElementById("loader");
-  if (loader) loader.style.display = "none";
 });
