@@ -5,13 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ChatBuddy | MasterAI</title>
 
-  <!-- Fonts & AOS -->
+  <!-- Fonts + AOS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="css/style.css" />
 
   <style>
+    body {
+      background: var(--accent-bg);
+      color: var(--text-dark);
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
     .chat-container {
+      flex: 1;
       max-width: 700px;
       margin: 40px auto;
       background: var(--card-bg);
@@ -19,7 +30,6 @@
       box-shadow: 0 4px 10px var(--shadow);
       display: flex;
       flex-direction: column;
-      height: 80vh;
       overflow: hidden;
     }
 
@@ -34,6 +44,7 @@
       padding: 12px 16px;
       border-radius: 10px;
       max-width: 85%;
+      word-wrap: break-word;
     }
 
     .user-msg {
@@ -52,7 +63,7 @@
     .chat-input {
       display: flex;
       border-top: 1px solid #ddd;
-      background: #fff;
+      background: var(--card-bg);
     }
 
     .chat-input input {
@@ -60,7 +71,8 @@
       border: none;
       padding: 16px;
       font-size: 16px;
-      font-family: inherit;
+      background: var(--card-bg);
+      color: var(--text-dark);
       outline: none;
     }
 
@@ -76,7 +88,7 @@
 
     .back-home {
       text-align: center;
-      margin-top: 20px;
+      margin: 20px 0;
     }
 
     .back-home a {
@@ -95,7 +107,7 @@
 
   <section class="chat-container" data-aos="fade-up">
     <div class="chat-messages" id="chatBox">
-      <div class="message ai-msg">Hello! I'm ChatBuddy. Ask me anything in your language.</div>
+      <div class="message ai-msg">Hello! I'm ChatBuddy. Ask me anything — in any language.</div>
     </div>
     <div class="chat-input">
       <input type="text" id="userInput" placeholder="Type something..." />
@@ -118,14 +130,12 @@
       const text = input.value.trim();
       if (!text) return;
 
-      // Display user message
       const userMsg = document.createElement('div');
       userMsg.className = 'message user-msg';
       userMsg.innerText = text;
       chatBox.appendChild(userMsg);
       input.value = '';
 
-      // Loading reply placeholder
       const aiMsg = document.createElement('div');
       aiMsg.className = 'message ai-msg';
       aiMsg.innerText = "Typing...";
@@ -138,11 +148,10 @@
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ prompt: text })
         });
-
         const data = await res.json();
-        aiMsg.innerText = data.response || "Sorry, I didn't get that.";
+        aiMsg.innerText = data.response || "Sorry, I didn't understand that.";
       } catch (err) {
-        aiMsg.innerText = "⚠️ Error: Failed to fetch response.";
+        aiMsg.innerText = "⚠️ Oops, something went wrong.";
       }
 
       chatBox.scrollTop = chatBox.scrollHeight;
@@ -150,8 +159,6 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+  <script>AOS.init();</script>
 </body>
-  </html>
+</html>
