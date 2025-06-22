@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ChatBuddy | MasterAI</title>
 
-  <!-- Fonts + AOS -->
+  <!-- Fonts & AOS -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="css/style.css" />
@@ -58,8 +58,8 @@
 
     .chat-messages {
       flex: 1;
-      overflow-y: auto;
       padding: 20px;
+      overflow-y: auto;
     }
 
     .message {
@@ -87,6 +87,7 @@
 
     .chat-input {
       display: flex;
+      align-items: center;
       border-top: 1px solid #ddd;
       background: var(--card-bg);
     }
@@ -106,20 +107,12 @@
       color: white;
       border: none;
       padding: 0 20px;
-      font-size: 16px;
-      font-weight: bold;
+      font-size: 18px;
       cursor: pointer;
-    }
-
-    .back-home {
-      text-align: center;
-      margin: 20px 0 10px;
-    }
-
-    .back-home a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
     }
 
     footer {
@@ -127,18 +120,6 @@
       padding: 14px;
       font-size: 14px;
       color: var(--text-muted);
-    }
-
-    @media (max-width: 600px) {
-      .chat-container {
-        margin: 20px;
-      }
-      .chat-input input {
-        padding: 12px;
-      }
-      .chat-input button {
-        padding: 0 16px;
-      }
     }
   </style>
 </head>
@@ -151,17 +132,13 @@
 
   <section class="chat-container" data-aos="fade-up">
     <div class="chat-messages" id="chatBox">
-      <div class="message ai-msg">Hello! I’m ChatBuddy. Ask me anything — in your language!</div>
+      <div class="message ai-msg">Hello! I'm ChatBuddy. Ask me anything — any language!</div>
     </div>
     <div class="chat-input">
       <input type="text" id="userInput" placeholder="Type your message..." />
-      <button onclick="sendMessage()">Send</button>
+      <button onclick="sendMessage()">✉️</button>
     </div>
   </section>
-
-  <div class="back-home">
-    <a href="index.html">🏠 Go to Home</a>
-  </div>
 
   <footer>
     <p>© 2025 MasterAI · ChatBuddy by Anand + Copilot</p>
@@ -197,9 +174,9 @@
         });
 
         const data = await res.json();
-        aiMsg.innerText = data.response?.trim() || "Sorry, I couldn’t generate a response.";
+        aiMsg.innerText = data.response?.trim() || "Sorry, I couldn’t understand that.";
       } catch (err) {
-        aiMsg.innerText = "⚠️ Error: Something went wrong.";
+        aiMsg.innerText = "⚠️ Error: Couldn’t connect to AI.";
       }
 
       chatBox.scrollTop = chatBox.scrollHeight;
