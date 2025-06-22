@@ -5,8 +5,8 @@ AOS.init({
   once: true
 });
 
-// === Navbar Scroll Shadow ===
-window.addEventListener('scroll', function () {
+// === Scroll shadow on header ===
+window.addEventListener('scroll', () => {
   const nav = document.querySelector('header');
   if (nav) nav.classList.toggle('scrolled', window.scrollY > 10);
 });
@@ -18,15 +18,15 @@ function toggleDark() {
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 }
 
-// === Load Dark Mode on Page Load ===
+// === Load saved dark mode on load ===
 window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark');
   }
 });
 
-// === Ripple Effect on Buttons ===
-document.addEventListener('click', function (e) {
+// === Ripple Effect on Click ===
+document.addEventListener('click', (e) => {
   const btn = e.target.closest('button, .tool-btn, .cta');
   if (!btn) return;
 
@@ -46,26 +46,26 @@ document.addEventListener('click', function (e) {
 function toggleSidebar() {
   const sidebar = document.getElementById('sidebar');
   if (sidebar) {
-    const isOpen = sidebar.style.right === "0px";
-    sidebar.style.right = isOpen ? "-250px" : "0px";
+    const isOpen = sidebar.style.right === '0px';
+    sidebar.style.right = isOpen ? '-250px' : '0px';
   }
 }
 
-// === Loader Show on Tool Click ===
+// === Loader Show on Tool Link Click ===
 function showLoader() {
   const loader = document.getElementById("loader");
   if (loader) loader.style.display = "flex";
 }
 
-// === Hide Loader on Back Navigation ===
+// === Hide Loader if user comes back via back-navigation ===
 window.addEventListener('pageshow', () => {
   const loader = document.getElementById("loader");
   if (loader) loader.style.display = "none";
 });
 
-// === Smooth Scroll to Anchors ===
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
+// === Smooth Scroll for Anchor Links ===
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function (e) {
     const target = document.querySelector(this.getAttribute('href'));
     if (target) {
       e.preventDefault();
