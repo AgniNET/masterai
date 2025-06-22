@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile | MasterAI</title>
+
+  <!-- Fonts & AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">MasterAI</div>
+    <a href="index.html" class="cta">⬅️ Back to Home</a>
+  </header>
+
+  <section class="about" data-aos="fade-up">
+    <h2>👤 User Profile</h2>
+    <p>Manage your personal details and view your feedback & history.</p>
+
+    <form style="max-width:600px;margin:40px auto;text-align:left;" data-aos="fade-up">
+      <label>Full Name</label>
+      <input type="text" placeholder="Anand Vaibhav" />
+
+      <label>Email</label>
+      <input type="email" placeholder="you@example.com" />
+
+      <label>Date of Birth</label>
+      <input type="date" />
+
+      <label>Gender</label>
+      <select>
+        <option>Select</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+
+      <label>Occupation</label>
+      <input type="text" placeholder="Developer, Designer, etc." />
+
+      <label>Username</label>
+      <input type="text" placeholder="master_anand" />
+
+      <label>Organization (Optional)</label>
+      <input type="text" placeholder="Master Tech" />
+
+      <label>Your Feedbacks (Read-only)</label>
+      <textarea rows="5" readonly>“Great tool for code snippets!” – Mar 2025</textarea>
+
+      <label>Last Login</label>
+      <input type="text" value="June 22, 2025 – 9:32 AM" readonly />
+
+      <button class="cta">💾 Save Changes</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 MasterAI · Built by Anand + Copilot</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/script.js" defer></script>
+</body>
+                                                   </html>
