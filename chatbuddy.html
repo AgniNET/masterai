@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChatBuddy | MasterAI</title>
+
+  <!-- Fonts & AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .chat-container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 4px 10px var(--shadow);
+      display: flex;
+      flex-direction: column;
+      height: 80vh;
+      overflow: hidden;
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .message {
+      margin: 12px 0;
+      padding: 12px 16px;
+      border-radius: 10px;
+      max-width: 85%;
+    }
+
+    .user-msg {
+      background: var(--primary);
+      color: white;
+      align-self: flex-end;
+    }
+
+    .ai-msg {
+      background: var(--accent-bg);
+      color: var(--text-dark);
+      align-self: flex-start;
+      border: 1px solid var(--shadow);
+    }
+
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+      background: #fff;
+    }
+
+    .chat-input input {
+      flex: 1;
+      border: none;
+      padding: 16px;
+      font-size: 16px;
+      font-family: inherit;
+      outline: none;
+    }
+
+    .chat-input button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0 24px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .back-home {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-home a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">🤖 ChatBuddy</div>
+    <a href="index.html" class="cta">⬅️ Back to Home</a>
+  </header>
+
+  <section class="chat-container" data-aos="fade-up">
+    <div class="chat-messages" id="chatBox">
+      <div class="message ai-msg">Hello! I'm ChatBuddy. Ask me anything in your language.</div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Type something..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </section>
+
+  <div class="back-home">
+    <a href="index.html">🏠 Go to Home</a>
+  </div>
+
+  <footer>
+    <p>© 2025 MasterAI · ChatBuddy by Anand + Copilot</p>
+  </footer>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById('userInput');
+      const chatBox = document.getElementById('chatBox');
+      const text = input.value.trim();
+      if (!text) return;
+
+      // Display user message
+      const userMsg = document.createElement('div');
+      userMsg.className = 'message user-msg';
+      userMsg.innerText = text;
+      chatBox.appendChild(userMsg);
+      input.value = '';
+
+      // Loading reply placeholder
+      const aiMsg = document.createElement('div');
+      aiMsg.className = 'message ai-msg';
+      aiMsg.innerText = "Typing...";
+      chatBox.appendChild(aiMsg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      try {
+        const res = await fetch("https://gemini-api-backend-cfry.onrender.com/generate", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt: text })
+        });
+
+        const data = await res.json();
+        aiMsg.innerText = data.response || "Sorry, I didn't get that.";
+      } catch (err) {
+        aiMsg.innerText = "⚠️ Error: Failed to fetch response.";
+      }
+
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+  </html>
