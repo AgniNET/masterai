@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback | MasterAI</title>
+
+  <!-- Fonts + AOS -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="logo">MasterAI</div>
+    <a href="index.html" class="cta">⬅️ Back to Home</a>
+  </header>
+
+  <section class="about" data-aos="fade-up">
+    <h2>💬 Share Your Feedback</h2>
+    <p>Let us know how MasterAI helped you — we value every word!</p>
+
+    <form style="max-width:600px;margin:40px auto;text-align:left;" data-aos="fade-up">
+      <label>Your Name</label>
+      <input type="text" placeholder="Priya Sharma" required />
+
+      <label>Email</label>
+      <input type="email" placeholder="you@example.com" required />
+
+      <label>Rating</label>
+      <select required>
+        <option value="">Select</option>
+        <option>⭐️ Poor</option>
+        <option>⭐️⭐️ Fair</option>
+        <option>⭐️⭐️⭐️ Good</option>
+        <option>⭐️⭐️⭐️⭐️ Very Good</option>
+        <option>⭐️⭐️⭐️⭐️⭐️ Excellent</option>
+      </select>
+
+      <label>Your Feedback</label>
+      <textarea rows="5" placeholder="Tell us your experience..." required></textarea>
+
+      <button class="cta">🚀 Submit</button>
+    </form>
+  </section>
+
+  <section class="tools" data-aos="fade-up">
+    <h2>⭐️ What Others Say</h2>
+    <div class="tool-container">
+
+      <div class="tool-card">
+        <h3>“Simplifies my workflow!”</h3>
+        <p>— Ayan, Developer 🇮🇳</p>
+      </div>
+
+      <div class="tool-card">
+        <h3>“Design and tools are premium class.”</h3>
+        <p>— Lina, UX Designer 🇩🇪</p>
+      </div>
+
+      <div class="tool-card">
+        <h3>“Feels like I'm using Odoo... only smarter.”</h3>
+        <p>— Jordan, Startup Founder 🇺🇸</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 MasterAI · Feedback fuels us 💜</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>
