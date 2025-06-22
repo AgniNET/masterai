@@ -352,3 +352,18 @@ loader {
     font-size: 28px;
   }
   }
+.cta {
+  color: var(--primary);
+  background: white;
+  border: 1px solid var(--primary);
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.cta:hover {
+  background: var(--primary);
+  color: white;
+  }
