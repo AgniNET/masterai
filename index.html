@@ -3,263 +3,148 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Master Tech | The Smartest Way to Grow</title>
+  <title>Master Tech | Smarter AI for Creators</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
 
-  <!-- AOS Animations -->
+  <!-- AOS Animation -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css" />
-
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 
-  <!-- Loader -->
-  <div id="loader">⏳ Loading...</div>
-
   <!-- HEADER -->
-  <header>
-    <div class="logo">
-      <span style="font-family: 'Orbitron', sans-serif; color: #00BFFF;">Master</span><span style="color: #FFD700;">Tech</span>
-    </div>
-    <nav class="desktop-nav">
-      <a href="#home">Home</a>
-      <a href="#offerings">Offerings</a>
-      <a href="#tools">Tools</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="#feedback">Feedback</a>
-      <button class="dark-toggle" onclick="toggleDark()">🌗</button>
-      <a href="profile.html">👤</a>
-    </nav>
+  <header class="topbar">
+    <div class="logo">Master <span style="color:#FFD700">Tech</span></div>
     <div class="hamburger" onclick="toggleSidebar()">☰</div>
   </header>
 
-  <!-- Sidebar Navigation (Mobile) -->
+  <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
-    <button class="close" onclick="toggleSidebar()">✕</button>
-    <a href="#home">Home</a>
-    <a href="#offerings">Offerings</a>
-    <a href="#tools">Tools</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <a href="#feedback">Feedback</a>
-    <a href="#faq">FAQs</a>
-    <a href="profile.html">Profile</a>
-    <a href="settings.html">Settings</a>
-    <a href="blog.html">Blog</a>
-    <a href="terms.html">Terms</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="cookies.html">Cookies</a>
+  <button class="close" onclick="toggleSidebar()">✕</button>
+  <a href="#home">Home</a>
+  <a href="#offerings">Offerings</a>
+  <a href="#tools">Tools</a>
+  <a href="#vision">Vision</a>
+  <a href="#faq">FAQs</a>
+  <a href="#start">Start Now</a>
+  <hr>
+  <a href="profile.html">👤 Profile</a>
+  <a href="settings.html">⚙️ Settings</a>
+  <a href="#about">ℹ️ About</a>
+  <a href="#creator">👨‍💻 Creator</a>
   </aside>
 
   <!-- HERO SECTION -->
   <section class="hero" id="home" data-aos="zoom-in">
-    <h1>🌠 Welcome to <span style="color:#00BFFF;">Master</span><span style="color:#FFD700;">Tech</span></h1>
-    <p><em>Your futuristic AI platform — crafted to accelerate growth intelligently.</em></p>
-    <a href="#tools" class="cta">🚀 Explore Tools</a>
+    <div class="hero-content">
+      <h1>Welcome to <span class="brand">Master Tech</span></h1>
+      <p>Your creative intelligence companion, built with multiple AI models.</p>
+      <a href="#tools" class="cta">🚀 Explore Tools</a>
+    </div>
   </section>
 
   <!-- OFFERINGS SECTION -->
   <section id="offerings" class="offerings" data-aos="fade-up">
-    <h2 class="section-title">🧩 Our Offerings</h2>
+    <h2 class="section-title">✨ Our Offerings</h2>
+    <ul class="offering-list">
+      <li><u><strong>⚡ Lightning-Fast Responses</strong></u></li>
+      <li><em>🎨 Creative Control for Every Flow</em></li>
+      <li><span style="text-decoration:line-through; text-decoration-style:wavy;">🔐 No Sign-Up Needed</span></li>
+      <li><strong><u>🌐 Multilingual AI Access</u></strong></li>
+      <li><em>🔧 Modular Tool Design</em></li>
+    </ul>
+  </section>
 
-    <div class="offerings-grid">
-      <div class="feature-block">
-        <h3><u><strong>⚡ Ultra-Fast AI Responses</strong></u></h3>
-        <p>Lightning-speed performance using next-gen LLM integration.</p>
-      </div>
-      <div class="feature-block">
-        <h3><em>🎨 Custom-Built Creativity Engines</em></h3>
-        <p>Write, design, imagine — tailored the way you think.</p>
-      </div>
-      <div class="feature-block">
-        <h3><span style="text-decoration: line-through; text-decoration-style: wavy;">🔒 Zero-Compromise Security</span></h3>
-        <p>We don’t just promise privacy — we build it by default.</p>
-      </div>
-      <div class="feature-block">
-        <h3><strong><u>🌐 Multilingual Prompting</u></strong></h3>
-        <p>Work in Hindi, English, Spanish, and more — fluently.</p>
-      </div>
-      <div class="feature-block">
-        <h3><em>📦 Modular Tool Interface</em></h3>
-        <p>Each tool built like a block—choose what suits your mind.</p>
-      </div>
-    </div>
-    </section>
-    <!-- WHY MASTER TECH -->
-  <section id="why" class="why-master-tech" data-aos="fade-up">
-    <h2>💡 <u>Why Master Tech?</u></h2>
-    <div class="why-columns">
-      <div><strong>🚀 Blazing Speed</strong><br><em>Built on lightning-fast AI inference logic</em></div>
-      <div><u>🎯 Focused Utility</u><br><span style="text-decoration:line-through; text-decoration-style:wavy;">No fluff</span>, only results</div>
-      <div><em>🧩 Modular Mindset</em><br>Pick only the tools you love</div>
-      <div><b>🎨 Designer’s Precision</b><br>Typography, layout, flow — elegant by default</div>
+  <!-- WHY MASTER TECH -->
+  <section class="why" id="why" data-aos="fade-up">
+    <h2 class="section-title">💡 Why Master Tech?</h2>
+    <div class="why-grid">
+      <div class="why-card">⚡ <strong>Speed</strong><br><span>Built for creators who move fast</span></div>
+      <div class="why-card">🧠 <u>Multiple AIs</u><br><span>Backed by flexible engines</span></div>
+      <div class="why-card">🎯 <em>Minimal UI</em><br><span>Simple. Distraction-free. Beautiful.</span></div>
     </div>
   </section>
 
-  <!-- TOOL DESCRIPTION SECTION -->
-  <section id="tool-desc" class="tool-description" data-aos="fade-up">
-    <h2>📚 <em>About Our Tools</em></h2>
-    <div class="tool-desc-grid">
-      <div>
-        <h3><strong>SmartRewrite</strong></h3>
-        <p>A sharp editor for tone, brevity & structure — ideal for content refinement.</p>
-      </div>
-      <div>
-        <h3><u>CodeWizard</u></h3>
-        <p>Turn natural language into clean, functional code snippets.</p>
-      </div>
-      <div>
-        <h3><span style="text-decoration:line-through;">VisionForge</span></h3>
-        <p>From words to visuals — creative image generation with flair.</p>
-      </div>
-      <div>
-        <h3><em>CreativeWrite</em></h3>
-        <p>Poems, jokes, lyrics & tales made with a spark of style.</p>
-      </div>
-      <div>
-        <h3><strong>ChatBuddy</strong></h3>
-        <p>Have real, intelligent conversations. Your AI, your language.</p>
-      </div>
-      <div>
-        <h3><u>NewsInformer</u></h3>
-        <p>Stay up-to-date with curated news summaries, fast and fresh.</p>
-      </div>
-    </div>
-  </section>
+  <!-- TOOLS SECTION -->
+  <section id="tools" class="tools" data-aos="fade-up">
+  <h2 class="section-title">🛠 Explore Smart Tools</h2>
+  <div class="tool-grid">
 
-  <!-- TOOLS GRID (Already Present) — No Change Needed Here Again -->
-
-  <!-- CREATOR'S THOUGHT -->
-  <section id="creator-thought" class="thought-of-creator" data-aos="fade-up">
-    <h2>👨‍🚀 Thought of the Creator</h2>
-    <blockquote>
-      <p><em>“The future is not made by tools — it's shaped by who holds them with intent.”</em></p>
-      <footer>— Anand Vaibhav</footer>
-    </blockquote>
-  </section>
-
-  <!-- CAPABILITIES + DONE BY US -->
-  <section id="capabilities" class="capabilities" data-aos="fade-up">
-    <h2>🧠 What Can Master Tech Do?</h2>
-    <div class="capabilities-columns">
-      <div>
-        <h3>💬 Natural Language Understanding</h3>
-        <p>Talk, write, prompt — we get your flow</p>
-      </div>
-      <div>
-        <h3>🖼 Prompt-to-Image Generation</h3>
-        <p>Visual creation powered by creative interpretation</p>
-      </div>
-      <div>
-        <h3>🧾 Document Interaction</h3>
-        <p>Extract, summarize, interpret your files</p>
-      </div>
-      <div>
-        <h3>✅ Built So Far</h3>
-        <ul>
-          <li>6 Smart Tools Deployed</li>
-          <li>Integrated Multiple AIs</li>
-          <li>Mobile-ready frontend</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <!-- ABOUT TECH MASTER -->
-  <section id="tech-master" data-aos="fade-up">
-    <h2>📡 About <u>Master Tech</u></h2>
-    <p>Master Tech is a modular AI interface, designed for intelligent growth and radical creativity. Its tools are built for speed, designed with elegance, and shaped to evolve.</p>
-  </section>
-
-  <!-- ABOUT AGNI ORG -->
-  <section id="agni" data-aos="fade-up">
-    <h2>🔥 About AGNI Organization</h2>
-    <p>AGNI is a collaborative initiative led by curious thinkers and builders — aspiring to unify domain-specific AI with purpose-driven experiences. It powers Master Tech and future projects like AGNIverse and NovaMind.</p>
-  </section>
-
-  <!-- VISION SECTION -->
-  <section id="vision" data-aos="fade-up">
-    <h2>🪐 Our Vision</h2>
-    <p><em>We envision a world where people access intelligence like electricity — instant, tailored, and empowering.</em></p>
-  </section>
-
-  <!-- ABOUT THE CREATOR -->
-  <section id="creator" data-aos="fade-up">
-    <h2>👨‍💻 About the Creator</h2>
-    <p><strong>Anand Vaibhav</strong> is a visionary technologist with a creative soul. He believes in building tools that empower others to build. Master Tech is not just code — it’s crafted vision, personality, and potential packed into utility. His personal touch can be felt in every page you scroll.</p>
-  </section>
-
-  <!-- START NOW CTA -->
-  <section id="start" class="start-now" data-aos="zoom-in">
-    <h2>🚀 Start Growing Smarter</h2>
-    <p><em>Join creators, thinkers & dreamers already shaping with Master Tech.</em></p>
-    <a href="#tools" class="cta">✨ Start Now</a>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="site-footer" data-aos="fade-up">
-
-    <div class="footer-columns">
-      <div>
-        <h4>📍 About Us</h4>
-        <a href="#tech-master">About Master Tech</a><br>
-        <a href="#creator">Creator</a><br>
-        <a href="#agni">AGNI Org</a><br>
-        <a href="#vision">Vision</a>
-      </div>
-      <div>
-        <h4>📜 Legal</h4>
-        <a href="terms.html">Terms & Conditions</a><br>
-        <a href="privacy.html">Privacy Policy</a><br>
-        <a href="cookies.html">Cookie Settings</a>
-      </div>
-      <div>
-        <h4>📣 Connect</h4>
-        <a href="#contact">Contact Us</a><br>
-        <a href="blog.html">Blog & News</a><br>
-        <a href="#feedback">Feedback</a><br>
-        <a href="events.html">Events</a>
-      </div>
-      <div>
-        <h4>🌍 Language</h4>
-        <select id="lang-picker">
-          <option>English</option>
-          <option>हिन्दी</option>
-          <option>Español</option>
-          <option>Français</option>
-          <option>日本語</option>
-        </select>
-      </div>
+    <div class="tool-card">
+      <h3>SmartRewrite</h3>
+      <p>Refine tone & structure in your writing</p>
+      <a href="smartrewrite.html" class="tool-btn">Try Now</a>
     </div>
 
-    <!-- Short Description -->
-    <div class="footer-blurb">
-      <p><em>Master Tech is an intelligent companion designed to grow with you — modular, open, and built with purpose.</em></p>
+    <div class="tool-card">
+      <h3>CodeWizard</h3>
+      <p>Generate or debug clean, readable code</p>
+      <a href="codewizard.html" class="tool-btn">Try Now</a>
     </div>
 
-    <!-- Social Follow -->
-    <div class="social-icons">
-      <a href="#"><img src="assets/icons/fb.svg" alt="Facebook"></a>
-      <a href="#"><img src="assets/icons/ig.svg" alt="Instagram"></a>
-      <a href="#"><img src="assets/icons/x.svg" alt="Twitter/X"></a>
-      <a href="#"><img src="assets/icons/wp.svg" alt="WhatsApp"></a>
-      <a href="#"><img src="assets/icons/github.svg" alt="GitHub"></a>
-      <a href="#"><img src="assets/icons/linkedin.svg" alt="LinkedIn"></a>
+    <div class="tool-card">
+      <h3>VisionForge</h3>
+      <p>Prompt-based visual creation made easy</p>
+      <a href="visionforge.html" class="tool-btn">Try Now</a>
     </div>
 
-    <!-- Final Strip -->
-    <div class="footer-signature">
-      © 2025 Created by <strong>Anand Vaibhav ✦ X Tech</strong>
+    <div class="tool-card">
+      <h3>CreativeWrite</h3>
+      <p>Generate poems, lyrics, jokes & more</p>
+      <a href="creativewrite.html" class="tool-btn">Try Now</a>
     </div>
-  </footer>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="js/script.js" defer></script>
-</body>
-  </html>
+    <div class="tool-card">
+      <h3>NewsInformer</h3>
+      <p>Curated news updates with context</p>
+      <a href="newsinformer.html" class="tool-btn">Try Now</a>
+    </div>
+
+    <div class="tool-card">
+      <h3>ChatBuddy</h3>
+      <p>Talk naturally with your AI assistant</p>
+      <a href="chatbuddy.html" class="tool-btn">Try Now</a>
+    </div>
+
+    <div class="tool-card">
+      <h3>Asthmatic Support</h3>
+      <p>Track symptoms & get safe suggestions</p>
+      <a href="asthmatic.html" class="tool-btn">Try Now</a>
+    </div>
+
+    <div class="tool-card">
+      <h3>Astrologer AI</h3>
+      <p>Personalized predictions & compatibility</p>
+      <a href="astrologer.html" class="tool-btn">Try Now</a>
+    </div>
+
+    <div class="tool-card">
+      <h3>Educational Q&A</h3>
+      <p>Ask subject-based academic questions</p>
+      <a href="qna.html" class="tool-btn">Try Now</a>
+    </div>
+
+    <div class="tool-card">
+      <h3>Ethical Hacking</h3>
+      <p>Basics of security and ethical hacking</p>
+      <a href="hacking.html" class="tool-btn">Try Now</a>
+    </div>
+
+    <div class="tool-card">
+      <h3>Reasoning & Math</h3>
+      <p>Solve logical and numerical problems</p>
+      <a href="maths.html" class="tool-btn">Try Now</a>
+    </div>
+
+    <div class="tool-card">
+      <h3>Advisor & Helper</h3>
+      <p>Personal suggestions for life, study & goals</p>
+      <a href="advisor.html" class="tool-btn">Try Now</a>
+    </div>
+
+  </div>
+  </section>
