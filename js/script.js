@@ -1,75 +1,31 @@
-// === AOS Animation Init ===
-AOS.init({
-  duration: 800,
-  easing: 'ease-in-out',
-  once: true
-});
-
-// === Scroll shadow on header ===
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('header');
-  if (nav) nav.classList.toggle('scrolled', window.scrollY > 10);
-});
-
-// === Dark Mode Toggle ===
-function toggleDark() {
-  document.body.classList.toggle('dark');
-  const isDark = document.body.classList.contains('dark');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-}
-
-// === Load saved dark mode on load ===
-window.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem('theme') === 'dark') {
-    document.body.classList.add('dark');
-  }
-});
-
-// === Ripple Effect on Click ===
-document.addEventListener('click', (e) => {
-  const btn = e.target.closest('button, .tool-btn, .cta');
-  if (!btn) return;
-
-  const ripple = document.createElement('span');
-  ripple.className = 'ripple';
-  btn.appendChild(ripple);
-
-  const d = Math.max(btn.clientWidth, btn.clientHeight);
-  ripple.style.width = ripple.style.height = `${d}px`;
-  ripple.style.left = `${e.offsetX - d / 2}px`;
-  ripple.style.top = `${e.offsetY - d / 2}px`;
-
-  setTimeout(() => ripple.remove(), 600);
-});
-
-// === Sidebar Toggle ===
+// ===== SIDEBAR TOGGLE =====
 function toggleSidebar() {
-  const sidebar = document.getElementById('sidebar');
-  if (sidebar) {
-    const isOpen = sidebar.style.right === '0px';
-    sidebar.style.right = isOpen ? '-250px' : '0px';
+  const sidebar = document.getElementById("sidebar");
+  sidebar.classList.toggle("show");
+}
+
+// ===== DARK MODE TOGGLE (Optional toggle button with 🌗) =====
+function toggleDark() {
+  document.body.classList.toggle("dark-mode");
+}
+
+// ===== LOADER FADE-OUT =====
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  if (loader) {
+    loader.style.opacity = 0;
+    setTimeout(() => loader.style.display = "none", 500);
   }
-}
-
-// === Loader Show on Tool Link Click ===
-function showLoader() {
-  const loader = document.getElementById("loader");
-  if (loader) loader.style.display = "flex";
-}
-
-// === Hide Loader if user comes back via back-navigation ===
-window.addEventListener('pageshow', () => {
-  const loader = document.getElementById("loader");
-  if (loader) loader.style.display = "none";
 });
 
-// === Smooth Scroll for Anchor Links ===
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-  link.addEventListener('click', function (e) {
-    const target = document.querySelector(this.getAttribute('href'));
+// ===== OPTIONAL: SCROLL TO TARGET SMOOTHLY =====
+const smoothLinks = document.querySelectorAll('a[href^="#"]');
+smoothLinks.forEach(link => {
+  link.addEventListener("click", (e) => {
+    const target = document.querySelector(link.getAttribute("href"));
     if (target) {
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth' });
+      target.scrollIntoView({ behavior: "smooth" });
     }
   });
 });
