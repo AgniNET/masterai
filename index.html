@@ -2,316 +2,195 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Master Tech | Smarter AI for Creators</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MasterAI – Modular Intelligence Network</title>
+  <style>
+    /* Reset & Base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      color: #000;
+      background-color: #f9f9f9;
+    }
+    a { text-decoration: none; color: inherit; }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-  <!-- AOS Animation -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    /* Header / Nav */
+    header {
+      background: #fff;
+      border-bottom: 1px solid #e0e0e0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 24px;
+    }
+    nav ul li a {
+      font-weight: 500;
+      color: #333;
+      transition: color .2s;
+    }
+    nav ul li a:hover {
+      color: #0077cc;
+    }
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css" />
+    /* Hero */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 0;
+    }
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
+    }
+    .hero-text h1 {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+      color: #222;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 24px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 28px;
+      background: #0077cc;
+      color: #fff;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: background .2s;
+    }
+    .btn:hover {
+      background: #005fa3;
+    }
+    .hero-image {
+      flex: 1;
+      min-width: 280px;
+      text-align: center;
+    }
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin: 60px 0;
+    }
+    .feature-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      transition: transform .2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+    }
+    .feature-card h3 {
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+      color: #222;
+    }
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    /* Footer */
+    footer {
+      background: #fff;
+      border-top: 1px solid #e0e0e0;
+      padding: 24px 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #777;
+      margin-top: 40px;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 768px) {
+      .hero { flex-direction: column-reverse; text-align: center; }
+      .hero-text, .hero-image { width: 100%; }
+      nav ul { gap: 16px; }
+    }
+  </style>
 </head>
 <body>
-
-  <!-- HEADER -->
-  <header class="topbar">
-    <div class="logo">Master <span style="color:#FFD700">Tech</span></div>
-    <div class="hamburger" onclick="toggleSidebar()">☰</div>
+  <header>
+    <div class="container navbar">
+      <div class="logo">MasterAI</div>
+      <nav>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#docs">Docs</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar" id="sidebar">
-  <button class="close" onclick="toggleSidebar()">✕</button>
-  <a href="#home">Home</a>
-  <a href="#offerings">Offerings</a>
-  <a href="#tools">Tools</a>
-  <a href="#vision">Vision</a>
-  <a href="#faq">FAQs</a>
-  <a href="#start">Start Now</a>
-  <hr>
-  <a href="profile.html">👤 Profile</a>
-  <a href="settings.html">⚙️ Settings</a>
-  <a href="#about">ℹ️ About</a>
-  <a href="#creator">👨‍💻 Creator</a>
-  </aside>
-
-  <!-- HERO SECTION -->
-  <section class="hero" id="home" data-aos="zoom-in">
-    <div class="hero-content">
-      <h1>Welcome to <span class="brand">Master Tech</span></h1>
-      <p>Your creative intelligence companion, built with multiple AI models.</p>
-      <a href="#tools" class="cta">🚀 Explore Tools</a>
+  <section class="container hero">
+    <div class="hero-text">
+      <h1>Build & Deploy Modular AI — Effortlessly</h1>
+      <p>Seamlessly integrate multiple AI modules, customize workflows, and spin up your next-gen web automation stack in minutes.</p>
+      <a href="#features" class="btn">Explore Features</a>
+    </div>
+    <div class="hero-image">
+      <img src="assets/hero.png" alt="Modular AI illustration">
     </div>
   </section>
 
-  <!-- OFFERINGS SECTION -->
-  <section id="offerings" class="offerings" data-aos="fade-up">
-    <h2 class="section-title">✨ Our Offerings</h2>
-    <ul class="offering-list">
-      <li><u><strong>⚡ Lightning-Fast Responses</strong></u></li>
-      <li><em>🎨 Creative Control for Every Flow</em></li>
-      <li><span style="text-decoration:line-through; text-decoration-style:wavy;">🔐 No Sign-Up Needed</span></li>
-      <li><strong><u>🌐 Multilingual AI Access</u></strong></li>
-      <li><em>🔧 Modular Tool Design</em></li>
-    </ul>
-  </section>
-
-  <!-- WHY MASTER TECH -->
-  <section class="why" id="why" data-aos="fade-up">
-    <h2 class="section-title">💡 Why Master Tech?</h2>
-    <div class="why-grid">
-      <div class="why-card">⚡ <strong>Speed</strong><br><span>Built for creators who move fast</span></div>
-      <div class="why-card">🧠 <u>Multiple AIs</u><br><span>Backed by flexible engines</span></div>
-      <div class="why-card">🎯 <em>Minimal UI</em><br><span>Simple. Distraction-free. Beautiful.</span></div>
+  <section id="features" class="container features">
+    <div class="feature-card">
+      <h3>Modular Architecture</h3>
+      <p>Pick and mix AI components to suit your project without rewriting core logic.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Zero-Config Setup</h3>
+      <p>Clone the repo, install deps, and you’re live. No boilerplate headaches.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Responsive & Accessible</h3>
+      <p>Optimized for every screen, with ARIA support and semantic markup out of the box.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Extensible Plugins</h3>
+      <p>Add new AI services or custom hooks via our plugin API.</p>
     </div>
   </section>
 
-  <!-- TOOLS SECTION -->
-  <section id="tools" class="tools" data-aos="fade-up">
-  <h2 class="section-title">🛠 Explore Smart Tools</h2>
-  <div class="tool-grid">
-
-    <div class="tool-card">
-      <h3>SmartRewrite</h3>
-      <p>Refine tone & structure in your writing</p>
-      <a href="smartrewrite.html" class="tool-btn">Try Now</a>
-    </div>
-
-    <div class="tool-card">
-      <h3>CodeWizard</h3>
-      <p>Generate or debug clean, readable code</p>
-      <a href="codewizard.html" class="tool-btn">Try Now</a>
-    </div>
-
-    <div class="tool-card">
-      <h3>VisionForge</h3>
-      <p>Prompt-based visual creation made easy</p>
-      <a href="visionforge.html" class="tool-btn">Try Now</a>
-    </div>
-
-    <div class="tool-card">
-      <h3>CreativeWrite</h3>
-      <p>Generate poems, lyrics, jokes & more</p>
-      <a href="creativewrite.html" class="tool-btn">Try Now</a>
-    </div>
-
-    <div class="tool-card">
-      <h3>NewsInformer</h3>
-      <p>Curated news updates with context</p>
-      <a href="newsinformer.html" class="tool-btn">Try Now</a>
-    </div>
-
-    <div class="tool-card">
-      <h3>ChatBuddy</h3>
-      <p>Talk naturally with your AI assistant</p>
-      <a href="chatbuddy.html" class="tool-btn">Try Now</a>
-    </div>
-
-    <div class="tool-card">
-      <h3>Asthmatic Support</h3>
-      <p>Track symptoms & get safe suggestions</p>
-      <a href="asthmatic.html" class="tool-btn">Try Now</a>
-    </div>
-
-    <div class="tool-card">
-      <h3>Astrologer AI</h3>
-      <p>Personalized predictions & compatibility</p>
-      <a href="astrologer.html" class="tool-btn">Try Now</a>
-    </div>
-
-    <div class="tool-card">
-      <h3>Educational Q&A</h3>
-      <p>Ask subject-based academic questions</p>
-      <a href="qna.html" class="tool-btn">Try Now</a>
-    </div>
-
-    <div class="tool-card">
-      <h3>Ethical Hacking</h3>
-      <p>Basics of security and ethical hacking</p>
-      <a href="hacking.html" class="tool-btn">Try Now</a>
-    </div>
-
-    <div class="tool-card">
-      <h3>Reasoning & Math</h3>
-      <p>Solve logical and numerical problems</p>
-      <a href="maths.html" class="tool-btn">Try Now</a>
-    </div>
-
-    <div class="tool-card">
-      <h3>Advisor & Helper</h3>
-      <p>Personal suggestions for life, study & goals</p>
-      <a href="advisor.html" class="tool-btn">Try Now</a>
-    </div>
-
-  </div>
-  </section>
-  <!-- CREATOR THOUGHT -->
-<section id="creator-thought" class="creator-thought" data-aos="fade-up">
-  <div class="thought-container">
-    <blockquote>
-      <p>“The future doesn't belong to tools. It belongs to those who dare to create.”</p>
-      <footer>— Anand Vaibhav</footer>
-    </blockquote>
-  </div>
-</section>
-
-<!-- CAPABILITIES + DONE BY US -->
-<section class="capabilities" id="capabilities" data-aos="fade-up">
-  <h2 class="section-title">🧠 Capabilities & What We've Built</h2>
-  <div class="capabilities-grid">
-    <div class="capability">
-      <h3>💬 Language Understanding</h3>
-      <p>Works with natural prompts in Hindi, English & more</p>
-    </div>
-    <div class="capability">
-      <h3>🖼 Visual Intelligence</h3>
-      <p>Image prompt analysis + generation capability</p>
-    </div>
-    <div class="capability">
-      <h3>🧾 AI-Powered Utilities</h3>
-      <p>PDF Q&A, resume evaluation, voice-to-text & more</p>
-    </div>
-    <div class="capability">
-      <h3>✅ Already Delivered</h3>
-      <ul>
-        <li>12+ tools online</li>
-        <li>Multiple AIs models integration</li>
-        <li>Mobile responsive, modular UI</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT TECH MASTER -->
-<section id="about-tech" class="about-tech" data-aos="fade-up">
-  <h2 class="section-title">📡 About Master Tech</h2>
-  <p>Master Tech is a modular AI platform built to empower creators, learners, and thinkers. It combines usability, design clarity and multiple AI engines to generate fast, intelligent outputs.</p>
-</section>
-
-<!-- ABOUT AGNI ORG -->
-<section id="agni-org" class="agni" data-aos="fade-up">
-  <h2 class="section-title">🔥 About AGNI Org</h2>
-  <p>AGNI is the core engine behind Master Tech — an initiative committed to building decentralized, ethical and intelligent systems that serve people over platforms. It powers current and upcoming tools like NovaMind & Syra.</p>
-</section>
-
-<!-- VISION -->
-<section id="vision" class="vision" data-aos="fade-up">
-  <h2 class="section-title">🌌 Our Vision</h2>
-  <p><em>“To deliver purposeful intelligence across every screen and simplify the creative journey through modular AI experiences.”</em></p>
-</section>
-
-<!-- ABOUT CREATOR -->
-<section id="creator" class="about-creator" data-aos="fade-up">
-  <h2 class="section-title">👨‍💻 About the Creator</h2>
-  <p><strong>Anand Vaibhav</strong> is a developer, designer and visionary who believes in blending futuristic tools with clear interfaces. From branding to behavior, every layer of Master Tech reflects his intent: simplicity, speed and soul.</p>
-</section>
-
-<!-- GOOGLE-STYLE FAQ -->
-<section id="faq" class="faq" data-aos="fade-up">
-  <h2 class="section-title">❓ Frequently Asked Questions</h2>
-  <details>
-    <summary>What is Master Tech?</summary>
-    <p>A smart AI toolkit that combines multiple AI models to generate content, help users, and simplify work in seconds.</p>
-  </details>
-  <details>
-    <summary>Is it free?</summary>
-    <p>Yes! Most tools are free to use. Premium tools may be added in future with full transparency.</p>
-  </details>
-  <details>
-    <summary>Do I need to sign up?</summary>
-    <p>No. We believe in open access — no login is needed to use core tools.</p>
-  </details>
-  <details>
-    <summary>Does it store my data?</summary>
-    <p>No. We don’t track or store your inputs. Your privacy matters here.</p>
-  </details>
-        </section>
-  <!-- MOVING FEEDBACKS -->
-<section id="reviews" class="feedbacks" data-aos="fade-up">
-  <h2 class="section-title">🌟 What Our Users Say</h2>
-  <div class="feedback-scroll">
-    <div class="feedback-card">
-      <p>“Unmatched interface. It feels like space tech with a soul.”</p>
-      <span>— Priya 🇮🇳</span>
-    </div>
-    <div class="feedback-card">
-      <p>“I built a portfolio in one evening using Master Tech.”</p>
-      <span>— Alex 🇺🇸</span>
-    </div>
-    <div class="feedback-card">
-      <p>“The design is subtle, elegant, and addictive.”</p>
-      <span>— Lina 🇩🇪</span>
-    </div>
-    <div class="feedback-card">
-      <p>“Tools are like magic. Credit goes to Anand!”</p>
-      <span>— Sanjay 🇮🇳</span>
-    </div>
-  </div>
-</section>
-
-<!-- START NOW CTA -->
-<section id="start" class="start-cta" data-aos="zoom-in">
-  <h2>🚀 Ready to Create with Intelligence?</h2>
-  <p>Join thousands of thinkers & makers using Master Tech daily.</p>
-  <a href="#tools" class="cta">✨ Start Now</a>
-</section>
-
-<!-- FOOTER SECTION -->
-<footer class="footer" data-aos="fade-up">
-  <div class="footer-grid">
-    <div>
-      <h4>🔗 About Us</h4>
-      <a href="#about-tech">About</a><br>
-      <a href="#creator">Creator</a><br>
-      <a href="#agni-org">AGNI Org</a><br>
-      <a href="#vision">Vision</a>
-    </div>
-    <div>
-      <h4>📜 Legal</h4>
-      <a href="terms.html">Terms & Conditions</a><br>
-      <a href="privacy.html">Privacy Policy</a><br>
-      <a href="cookies.html">Cookie Settings</a>
-    </div>
-    <div>
-      <h4>📣 Connect</h4>
-      <a href="#contact">Contact</a><br>
-      <a href="events.html">Events</a><br>
-      <a href="blog.html">Blog & News</a>
-    </div>
-    <div>
-      <h4>🌍 Language</h4>
-      <select id="lang-select">
-        <option>English</option>
-        <option>हिन्दी</option>
-        <option>Español</option>
-        <option>日本語</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="footer-desc">
-    <p><em>Master Tech is a creative intelligence interface, merging speed, design and modular AI for better tools and brighter thinking.</em></p>
-  </div>
-
-  <div class="social-links">
-    <a href="#"><img src="assets/icons/fb.svg" alt="Facebook" /></a>
-    <a href="#"><img src="assets/icons/ig.svg" alt="Instagram" /></a>
-    <a href="#"><img src="assets/icons/x.svg" alt="Twitter/X" /></a>
-    <a href="#"><img src="assets/icons/wp.svg" alt="WhatsApp" /></a>
-    <a href="#"><img src="assets/icons/github.svg" alt="GitHub" /></a>
-    <a href="#"><img src="assets/icons/linkedin.svg" alt="LinkedIn" /></a>
-  </div>
-
-  <div class="footer-signature">
-    <p>© 2025 Created by <strong>Anand Vaibhav ✦ X Tech</strong></p>
-  </div>
-</footer>
-
-<!-- SCRIPTS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="js/script.js" defer></script>
+  <footer id="contact">
+    &copy; 2025 MasterAI • Designed to power your AI innovations
+  </footer>
 </body>
-      </html>
+  </html>
