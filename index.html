@@ -1,249 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MasterAI AgniNet</title>
-  <style>
-    /* === Base Reset & Typography === */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background: #f5f7fa;
-    }
-    a { color: inherit; text-decoration: none; }
 
-    /* === Color Palette === */
-    :root {
-      --primary: #0a8754;
-      --primary-light: #38a169;
-      --text: #333;
-      --bg: #f5f7fa;
-      --card: #ffffff;
-      --border: #e2e8f0;
-    }
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?
+      family=Rubik:wght@400;500;700&
+      family=Nunito+Sans:wght@400;600;800&
+      display=swap"
+    rel="stylesheet"
+  />
 
-    /* === Container Helpers === */
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px 0;
-    }
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="style.css" />
 
-    /* === Header & Nav === */
-    header {
-      background: var(--card);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
-    }
-    .navbar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: var(--primary);
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 24px;
-    }
-    nav ul li a {
-      position: relative;
-      font-weight: 500;
-      padding-bottom: 4px;
-    }
-    nav ul li a:hover::after {
-      content: '';
-      position: absolute;
-      left: 0; bottom: 0;
-      width: 100%; height: 2px;
-      background: var(--primary);
-    }
-
-    /* === Hero Section === */
-    #home {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      padding: 80px 0;
-      gap: 40px;
-    }
-    .hero-text {
-      flex: 1;
-      min-width: 280px;
-    }
-    .hero-text h1 {
-      font-size: 3rem;
-      margin-bottom: 16px;
-      color: var(--text);
-      text-decoration: underline var(--primary-light);
-    }
-    .hero-text p {
-      font-size: 1.1rem;
-      margin-bottom: 24px;
-      color: #555;
-    }
-    .hero-text p em { color: var(--primary); font-style: italic; }
-    .hero-text p strong { font-weight: bold; }
-    .btn-primary {
-      display: inline-block;
-      padding: 14px 30px;
-      background: var(--primary);
-      color: #fff;
-      border-radius: 4px;
-      font-weight: 600;
-      transition: background .2s;
-    }
-    .btn-primary:hover {
-      background: var(--primary-light);
-    }
-    .hero-image {
-      flex: 1;
-      text-align: center;
-    }
-    .hero-image img {
-      max-width: 100%;
-      border: 4px solid var(--border);
-      border-radius: 8px;
-    }
-
-    /* === Feature Cards === */
-    #features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin: 60px 0;
-    }
-    .feature-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 28px 20px;
-      text-align: center;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .feature-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    .feature-icon {
-      width: 60px; height: 60px;
-      margin: 0 auto 16px;
-      border: 2px dashed var(--primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-      font-size: 1.5rem;
-    }
-    .feature-card h3 {
-      margin-bottom: 12px;
-      font-size: 1.2rem;
-      color: var(--text);
-      text-decoration: underline;
-    }
-    .feature-card p {
-      font-size: 0.95rem;
-      color: #555;
-    }
-
-    /* === Footer === */
-    footer {
-      background: var(--card);
-      border-top: 1px solid var(--border);
-      text-align: center;
-      padding: 24px 0;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    /* === Responsive === */
-    @media (max-width: 768px) {
-      #home { flex-direction: column; text-align: center; }
-      .hero-text, .hero-image { width: 100%; }
-      nav ul { gap: 16px; }
-    }
-  </style>
+  <!-- Favicon -->
+  <link rel="icon" href="assets/logo/favicon.png" type="image/png" />
 </head>
-<body>
 
-  <!-- Header & Navigation -->
-  <header>
-    <div class="container navbar">
-      <div class="logo">MasterAI AgniNet</div>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="assets/logo/logo.png" alt="MasterAI AgniNet" />
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
       <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#docs">Docs</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="chatbuddy.html">ChatBuddy</a></li>
+          <li><a href="codewizard.html">CodeWizard</a></li>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="container">
-    <div class="hero-text">
-      <h1>Welcome to <em>MasterAI AgniNet</em></h1>
-      <p><strong>Build</strong> and <strong>deploy</strong> your modular AI network with our plug-and-play platform, all in under 5 minutes.</p>
-      <a href="#features" class="btn-primary">Get Started</a>
-    </div>
-    <div class="hero-image">
-      <img src="assets/hero.png" alt="Modular AI illustration">
-    </div>
-  </section>
-
-  <!-- Features Section -->
-  <section id="features" class="container">
-    <div class="feature-card">
-      <div class="feature-icon">①</div>
-      <h3>Modular Design</h3>
-      <p>Mix and match AI components with zero code changes.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">②</div>
-      <h3>Instant Deployment</h3>
-      <p>One-click launch on any cloud or local server.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">③</div>
-      <h3>Custom Plugins</h3>
-      <p>Add your own hooks and services via our plugin API.</p>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">④</div>
-      <h3>24×7 Monitoring</h3>
-      <p>Built-in health checks keep everything running smoothly.</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>
+          Plug-and-Play <em>Modular</em> AI Services
+        </h1>
+        <p>
+          Get free or low-cost AI modules in minutes. Customize workflows,
+          spin up instantly.
+        </p>
+        <a href="#features" class="btn btn-primary">Explore Services</a>
+      </div>
+      <div class="hero-image">
+        <img src="assets/images/hero.svg" alt="Modular AI illustration" />
+      </div>
     </div>
   </section>
 
-  <!-- Placeholder: Pricing, Docs, Contact -->
-  <section id="pricing" class="container">
-    <!-- Add your pricing tables here -->
+  <!-- FEATURES -->
+  <section id="features" class="stripe">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <div class="grid features-grid">
+        <a href="profile.html" class="card">
+          <div class="card-icon">🧑‍💼</div>
+          <h3>Profile Manager</h3>
+          <p>Save preferences & personalize your AI experience.</p>
+        </a>
+        <a href="chatbuddy.html" class="card">
+          <div class="card-icon">💬</div>
+          <h3>ChatBuddy</h3>
+          <p>Real-time AI conversations—ask anything.</p>
+        </a>
+        <a href="codewizard.html" class="card">
+          <div class="card-icon">🧠</div>
+          <h3>CodeWizard</h3>
+          <p>Generate, debug, and refine code with AI help.</p>
+        </a>
+      </div>
+    </div>
   </section>
 
-  <section id="docs" class="container">
-    <!-- Link to your detailed documentation -->
+  <!-- PLACEHOLDER SECTIONS -->
+  <section id="pricing" class="container section">
+    <!-- Pricing tables go here -->
   </section>
 
-  <section id="contact" class="container">
-    <!-- Your contact info or form -->
+  <section id="docs" class="stripe container section">
+    <!-- Documentation links go here -->
   </section>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 MasterAI AgniNet • All rights reserved
+  <section id="contact" class="container section">
+    <!-- Contact form or info goes here -->
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      &copy; 2025 MasterAI AgniNet • All rights reserved
+    </div>
   </footer>
 
+  <!-- Core Script -->
+  <script src="script.js" defer></script>
 </body>
 </html>
